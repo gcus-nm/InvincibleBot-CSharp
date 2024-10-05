@@ -15,7 +15,7 @@ namespace InvincibleBot.Core
 
 		public DiscordSocketClient BotClient { get; private set; }
 		public CommandService BotCommandService { get; private set; }
-		public Microsoft.Extensions.DependencyInjection.ServiceProvider BotServices { get; private set; }
+		public ServiceProvider BotServices { get; private set; }
 		public IMessageChannel ResentMessageChannel { get; private set; }
 		public static string BotToken { get; private set; }
 
