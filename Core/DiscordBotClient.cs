@@ -45,8 +45,6 @@ namespace InvincibleBot.Core
 			BotCommandService = new CommandService();
 			BotServices = new ServiceCollection().BuildServiceProvider();
 
-			BotClient.MessageReceived += OnRecievedMessage;
-
 			try
 			{
 				using (StreamReader read = new StreamReader(BOT_TOKEN_FILEPATH, Encoding.UTF8))
@@ -71,37 +69,6 @@ namespace InvincibleBot.Core
 			{
 				Console.WriteLine(ex);
 				Console.ReadLine();
-			}
-		}
-		private async Task OnRecievedMessage(SocketMessage message)
-		{
-			var userMessage = message as SocketUserMessage;
-
-			await MessageToCommand(userMessage);
-		}
-
-		private async Task MessageToCommand(SocketUserMessage userMessage)
-		{
-			if (!BotUtility.IsValidMessage(userMessage))
-			{
-				return;
-			}
-
-			int index = 0;
-
-			if (!(userMessage.HasCharPrefix('/', ref index) || userMessage.HasMentionPrefix(BotClient.CurrentUser, ref index)))
-			{
-				return;
-			}
-
-			var context = new CommandContext(BotClient, userMessage);
-			var command = await BotCommandService.ExecuteAsync(context, index, BotServices);
-
-			ResentMessageChannel = context.Channel;
-
-			if (!command.IsSuccess)
-			{
-				await context.Channel.SendMessageAsync(command.ErrorReason);
 			}
 		}
 	}
