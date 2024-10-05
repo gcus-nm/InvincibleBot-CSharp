@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using System.Text;
 
-namespace BotClient.Core
+namespace InvincibleBot.Core
 {
 	public class DiscordBotClient
 	{

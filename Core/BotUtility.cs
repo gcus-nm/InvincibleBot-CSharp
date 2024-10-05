@@ -1,7 +1,7 @@
 using Discord.WebSocket;
 using System.Runtime.InteropServices;
 
-namespace BotClient.Core
+namespace InvincibleBot.Core
 {
 	public static class BotUtility
 	{

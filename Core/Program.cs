@@ -1,4 +1,4 @@
-﻿namespace BotClient.Core;
+﻿namespace InvincibleBot.Core;
 
 class Program
 {
