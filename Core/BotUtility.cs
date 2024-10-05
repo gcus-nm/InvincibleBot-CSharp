@@ -48,5 +48,16 @@ namespace InvincibleBot.Core
 
 			throw new PlatformNotSupportedException();
 		}
+
+		/// <summary>
+		/// サーバーIDを元にサーバーのオブジェクトを取得<br/>
+		/// ※<see cref="DiscordSocketClient.Ready"/>の呼び出しが完了している必要があります
+		/// </summary>
+		/// <param name="guildIds"></param>
+		/// <returns></returns>
+		public static SocketGuild?[] GetGuilds(params ulong[] guildIds)
+		{
+			return guildIds.Select(guildId => DiscordBotClient.Instance.BotClient.GetGuild(guildId)).ToArray();
+		}
 	}
 }
