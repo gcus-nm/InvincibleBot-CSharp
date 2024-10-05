@@ -26,13 +26,13 @@ namespace InvincibleBot.Minecraft
                 .WithName("mine")
                 .WithDescription("Minecraft関連のコマンド")
                 .AddOption(new SlashCommandOptionBuilder()
+                    .WithType(ApplicationCommandOptionType.SubCommand)
                     .WithName("start")
                     .WithDescription("サーバーを起動します")
-                    .WithType(ApplicationCommandOptionType.SubCommand)
                 ).AddOption(new SlashCommandOptionBuilder()
+                    .WithType(ApplicationCommandOptionType.SubCommand)
                     .WithName("stop")
                     .WithDescription("サーバーを停止します")
-                    .WithType(ApplicationCommandOptionType.SubCommand)
                 );
 
             try
